@@ -4,6 +4,17 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+pandas = "*"
+jupyter = "*"
+matplotlib = "*"
+seaborn = "*"
+imblearn = "*"
+scikit-learn = "*"
+flask = "*"
+xgboost = "*"
+lightgbm = "*"
+streamlit = "==1.16.0"
+plotly = "==5.11.0"
 
 [dev-packages]
 
