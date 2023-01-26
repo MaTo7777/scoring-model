@@ -15,9 +15,13 @@ xgboost = "*"
 lightgbm = "*"
 streamlit = "==1.16.0"
 plotly = "==5.11.0"
+gunicorn = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.9"
 python_full_version = "3.9.13"
+
+[production]
+gunicorn = "*"
