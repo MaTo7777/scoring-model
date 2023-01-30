@@ -5,7 +5,7 @@ import numpy as np
 import plotly.express as px
 
 # Chargement du dataset
-df = pd.read_csv("app_train_dashboard_with_prediction")
+df = pd.read_csv("../app_train_dashboard_with_prediction")
 
 # Configuration de la page
 st.set_page_config(
