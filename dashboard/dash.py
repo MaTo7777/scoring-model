@@ -5,7 +5,7 @@ import numpy as np
 import plotly.express as px
 
 # Chargement du dataset
-df = pd.read_csv("app_train_dashboard_with_prediction")
+df = pd.read_csv("app_test_dashboard_with_prediction")
 
 # Configuration de la page
 st.set_page_config(
@@ -59,17 +59,17 @@ st.markdown("##")
 
 # Informations
 nombre_clients = int(df_selection.shape[0])
-average_target = round(100 * df_selection["TARGET"].mean(), 2)
+average_age = round((abs(df_selection["DAYS_BIRTH"])/365).mean(), 1)
 average_prediction = round(100 * df_selection["Prediction : 1"].mean(), 2)
-bank = ":bank:"
+family = ":family:"
 
 colonne_gauche, colonne_droite = st.columns(2)
 with colonne_gauche:
     st.subheader("Nombre de clients :")
     st.subheader(f"{nombre_clients}")
 with colonne_droite:
-    st.subheader("Pourcentage de prêts non-remboursés :")
-    st.subheader(f"{bank} {average_target} % ")
+    st.subheader("Âge moyen des clients :")
+    st.subheader(f"{family} {average_age} ans")
 
 
 # Prédictions selon le type de contrat
