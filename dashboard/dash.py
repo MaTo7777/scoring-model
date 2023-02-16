@@ -1,7 +1,6 @@
-import time
 import streamlit as st
 import pandas as pd
-import numpy as np
+import requests
 import plotly.express as px
 
 # Chargement du dataset
@@ -135,3 +134,10 @@ graph_habitation = px.bar(
 )
 
 st.plotly_chart(graph_habitation)
+
+user_input = st.text_input("Entrez l'ID Client")
+id_client = int(user_input)
+
+
+
+
