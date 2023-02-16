@@ -145,7 +145,7 @@ if response.status_code == 200:
     data = response.json()
     st.write(data)
 else:
-    st.write('Erreur:', response.status_code)
+    st.write('Erreur :', response.status_code)
 
 # Affichage 2 : Prédiction
 
@@ -157,4 +157,4 @@ if response.status_code == 200:
     data = response.json()
     st.write(data)
 else:
-    st.write('Erreur:', response.status_code)
+    st.write('Erreur :', response.status_code)
