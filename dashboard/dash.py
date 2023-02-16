@@ -1,7 +1,6 @@
-import time
 import streamlit as st
 import pandas as pd
-import numpy as np
+import requests
 import plotly.express as px
 
 # Chargement du dataset
@@ -135,3 +134,27 @@ graph_habitation = px.bar(
 )
 
 st.plotly_chart(graph_habitation)
+
+# Affichage 1 : infos client
+
+base_url = 'https://projet-7-toth-maxime.herokuapp.com/infos_client'
+user_input = st.text_input("Entrez l'ID Client pour afficher les infos :")
+full_url = base_url + '?id_client=' + user_input
+response = requests.get(full_url)
+if response.status_code == 200:
+    data = response.json()
+    st.write(data)
+else:
+    st.write('Erreur:', response.status_code)
+
+# Affichage 2 : Prédiction
+
+base_url = 'https://projet-7-toth-maxime.herokuapp.com/infos_client'
+user_input = st.text_input("Entrez l'ID Client pour afficher la prédiction :")
+full_url = base_url + '?id_client=' + user_input
+response = requests.get(full_url)
+if response.status_code == 200:
+    data = response.json()
+    st.write(data)
+else:
+    st.write('Erreur:', response.status_code)
