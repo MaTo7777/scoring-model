@@ -150,8 +150,8 @@ else:
 # Affichage 2 : Prédiction
 
 base_url = 'https://projet-7-toth-maxime.herokuapp.com/predict_client'
-user_input = st.text_input("Entrez l'ID Client pour afficher la prédiction :")
-full_url = base_url + '?id_client=' + user_input
+user_input2 = st.text_input("Entrez l'ID Client pour afficher la prédiction :")
+full_url = base_url + '?id_client=' + user_input2
 response = requests.get(full_url)
 if response.status_code == 200:
     data = response.json()
