@@ -8,26 +8,6 @@ app = Flask(__name__)
 
 dataset = pd.read_csv("app_test_dashboard_with_prediction")
 
-@app.route('/load_models', methods=['GET'])
-def load_model():
-    global model
-    # Load the model from the file
-    with open('model_weights/clf_xgb_o.pkl', 'rb') as f:
-        model = joblib.load(f)
-
-    global imputer
-    with open('model_weights/imputer.pkl', 'rb') as f:
-        imputer = joblib.load(f)
-
-    global colonnes_model
-    with open('model_weights/colonnes_attendues.pkl', 'rb') as f:
-        colonnes_model = joblib.load(f)
-
-    global scaler
-    with open('model_weights/scaler.pkl', 'rb') as f:
-        scaler = joblib.load(f)
-
-    return 'Models loaded!'
 
 @app.route("/infos_client", methods=["GET"])
 def infos_client():
@@ -55,6 +35,18 @@ def predict_client():
     id = request.args.get("id_client")
 
     data = dataset[dataset["SK_ID_CURR"] == int(id)]
+    # Chargement des modèles
+    with open('model_weights/clf_xgb_o.pkl', 'rb') as f:
+        model = joblib.load(f)
+
+    with open('model_weights/imputer.pkl', 'rb') as f:
+        imputer = joblib.load(f)
+
+    with open('model_weights/colonnes_attendues.pkl', 'rb') as f:
+        colonnes_model = joblib.load(f)
+
+    with open('model_weights/scaler.pkl', 'rb') as f:
+        scaler = joblib.load(f)
 
     # Prépare la requête pour qu'elle soit conforme au modèle
     # ONE HOT ENCODING
@@ -127,6 +119,19 @@ def predict_client():
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    # Chargement des modèles
+    with open('model_weights/clf_xgb_o.pkl', 'rb') as f:
+        model = joblib.load(f)
+
+    with open('model_weights/imputer.pkl', 'rb') as f:
+        imputer = joblib.load(f)
+
+    with open('model_weights/colonnes_attendues.pkl', 'rb') as f:
+        colonnes_model = joblib.load(f)
+
+    with open('model_weights/scaler.pkl', 'rb') as f:
+        scaler = joblib.load(f)
+
     # Get the data from the request
     data = request.get_json()
     print("Étape 1 réussie.")
