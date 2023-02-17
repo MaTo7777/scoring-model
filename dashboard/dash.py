@@ -149,7 +149,7 @@ else:
 
 # Affichage 2 : Prédiction
 
-base_url = 'https://projet-7-toth-maxime.herokuapp.com/infos_client'
+base_url = 'https://projet-7-toth-maxime.herokuapp.com/predict_client'
 user_input = st.text_input("Entrez l'ID Client pour afficher la prédiction :")
 full_url = base_url + '?id_client=' + user_input
 response = requests.get(full_url)
